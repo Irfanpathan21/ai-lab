@@ -44,6 +44,10 @@ def a_star(start, goal):
         curr = min(open_list, key=lambda n: g_score[n] + heuristic[n])
         open_list.remove(curr)
 
+        # Step-by-Step Node Expansion Progression
+        g, h = g_score[curr], heuristic[curr]
+        print(f"Expanding: {curr} | g={g}, h={h}, f={g + h}")
+
         # Goal Check: Reconstruct optimal path if reached
         if curr == goal:
             path = []
