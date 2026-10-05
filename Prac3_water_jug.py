@@ -7,11 +7,10 @@
 #   Maintain queue of (current_state, path_so_far).
 #   Apply 6 valid actions (Fill, Empty, Pour) to find the shortest path.
 #
-# EXAM ADAPTATION GUIDE (How to use this template for other questions):
-#   - Change Jug Capacities / Goal: Modify CAP_X, CAP_Y, and GOAL values.
-#     (e.g., for 5L & 3L jug to get 4L: CAP_X, CAP_Y, GOAL = 5, 3, 4).
+# EXAM ADAPTATION GUIDE:
+#   - Capacities / Goal: Modify CAP_X, CAP_Y, and GOAL values.
 #   - Any State Space Problem (Missionaries & Cannibals, 8-Puzzle):
-#     Replace (x, y) with problem state and 'rules' with valid transitions!
+#     Replace state tuple and 'rules' with valid transitions!
 # =====================================================================
 
 # 1. Capacities and Target Goal
@@ -20,8 +19,8 @@ CAP_Y = 3   # Jug 2 Capacity (3 Litres)
 GOAL  = 2   # Target: Measure 2 Litres in either jug
 
 # 2. Universal State-Space BFS Function
-def water_jug():
-    start = (0, 0)
+def water_jug(start_x=0, start_y=0):
+    start = (start_x, start_y)
     queue = [(start, [start])]
     visited = {start}
 
@@ -30,7 +29,7 @@ def water_jug():
 
         # Goal Check: Does any jug have the target amount?
         if x == GOAL or y == GOAL:
-            print(f"Goal {GOAL}L Reached! Shortest Path ({len(path)-1} steps):")
+            print(f"\nGoal {GOAL}L Reached! Shortest Path ({len(path)-1} steps):")
             for step in path:
                 print(f"  Jug1: {step[0]}L | Jug2: {step[1]}L")
             return
@@ -52,6 +51,9 @@ def water_jug():
 
     print("Goal state is unreachable!")
 
-# 3. Driver Code
-print("Water Jug Problem (4L & 3L -> 2L):")
-water_jug()
+# 3. Driver Code with User Input (default 0)
+if __name__ == '__main__':
+    print("Water Jug Problem (4L & 3L -> 2L Goal):")
+    sx = int(input("Enter initial water in 4L jug (default 0): ").strip() or 0)
+    sy = int(input("Enter initial water in 3L jug (default 0): ").strip() or 0)
+    water_jug(sx, sy)

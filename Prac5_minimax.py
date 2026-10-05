@@ -8,10 +8,10 @@
 #   Draw -> score is 0.
 #   Recursively evaluate all future outcomes and choose optimal branch.
 #
-# EXAM ADAPTATION GUIDE (How to use this template for other questions):
-#   - Alpha-Beta Pruning: Just add alpha and beta bounds to minimax()!
+# EXAM ADAPTATION GUIDE:
+#   - Alpha-Beta Pruning: Add alpha and beta bounds to minimax()!
 #   - Any 2-Player Zero-Sum Game (Nim, Connect-4):
-#     Replace win conditions and board representation; minimax loop is IDENTICAL.
+#     Replace win conditions and board; minimax loop is IDENTICAL.
 # =====================================================================
 
 # 1. State / Board Representation (9 cells: 0 to 8)
@@ -27,6 +27,9 @@ wins = [
 def check_win(player):
     return any(board[a] == board[b] == board[c] == player for a, b, c in wins)
 
+def is_full():
+    return ' ' not in board
+
 def print_board():
     for i in (0, 3, 6):
         print(f" {board[i]} | {board[i+1]} | {board[i+2]} ")
@@ -36,7 +39,7 @@ def print_board():
 def minimax(is_max):
     if check_win('X'): return 1
     if check_win('O'): return -1
-    if ' ' not in board: return 0
+    if is_full(): return 0
 
     if is_max:
         best = -999
@@ -55,7 +58,7 @@ def minimax(is_max):
                 board[i] = ' '
         return best
 
-def best_move():
+def bot_move():
     best_score, move = -999, -1
     for i in range(9):
         if board[i] == ' ':
@@ -64,19 +67,34 @@ def best_move():
             board[i] = ' '
             if score > best_score:
                 best_score, move = score, i
-    return move
+    board[move] = 'X'
+    print(f"Bot ('X') chose position {move}")
 
-# 3. Demonstration / Driver Code
-# Setup a scenario where Human ('O') threatens to win, AI ('X') must block/win
-print("Tic-Tac-Toe Minimax Demonstration:")
-board[0] = 'X'
-board[1] = 'O'
-board[4] = 'O'
-print("Current Board:")
-print_board()
+# 3. Interactive Play Loop (AI vs Human)
+if __name__ == '__main__':
+    print("Tic-Tac-Toe AI (Bot = 'X', You = 'O')")
+    print("Positions:\n 0 | 1 | 2 \n 3 | 4 | 5 \n 6 | 7 | 8 \n")
 
-ai_pos = best_move()
-print(f"AI calculates optimal move: Position {ai_pos}")
-board[ai_pos] = 'X'
-print("\nBoard after AI Move:")
-print_board()
+    while True:
+        bot_move()
+        print_board()
+        if check_win('X'):
+            print("Bot wins! (Minimax is unbeatable)")
+            break
+        if is_full():
+            print("It's a Draw!")
+            break
+
+        # Human move with validation
+        p = int(input("Enter your move (0-8): "))
+        while board[p] != ' ':
+            p = int(input("Position taken! Enter again (0-8): "))
+        board[p] = 'O'
+        print_board()
+
+        if check_win('O'):
+            print("You won!")
+            break
+        if is_full():
+            print("It's a Draw!")
+            break
