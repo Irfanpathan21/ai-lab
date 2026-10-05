@@ -59,10 +59,15 @@ def solve_nqueens(col=0):
 
     return False
 
-# 3. Driver Code
-print(f"--- {N}-Queens Solution ---")
-if solve_nqueens(0):
-    for row in board:
-        print(" ".join("Q" if cell == 1 else "." for cell in row))
-else:
-    print("No solution exists!")
+# 3. Driver Code with User Input (default 4)
+if __name__ == '__main__':
+    val = input("Enter number of Queens (N, default 4): ").strip()
+    N = int(val) if val else 4
+    board = [[0] * N for _ in range(N)]
+
+    print(f"\n--- {N}-Queens Solution ---")
+    if solve_nqueens(0):
+        for row in board:
+            print(" ".join("Q" if cell == 1 else "." for cell in row))
+    else:
+        print("No solution exists!")

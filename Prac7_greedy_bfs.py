@@ -42,6 +42,9 @@ def greedy_bfs(start, goal):
         open_list.remove(curr)
         visited.add(curr)
 
+        # Step-by-Step Node Expansion Progression
+        print(f"Expanding Node: '{curr}' with Heuristic h={heuristic[curr]}")
+
         # Goal Check: Reconstruct path if reached
         if curr == goal:
             path = []
