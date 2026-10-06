@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<aiml version="1.0.1">
+
+    <!-- Greeting -->
+    <category>
+        <pattern>HELLO</pattern>
+        <template>
+            Hello! Welcome to the College Information Chatbot.
+            How can I help you?
+        </template>
+    </category>
+
+    <category>
+        <pattern>HI</pattern>
+        <template>
+            Hi! How can I help you with college information?
+        </template>
+    </category>
+
+    <!-- College Information -->
+    <category>
+        <pattern>WHAT IS THE COLLEGE TIMING</pattern>
+        <template>
+            The college timing is from 9:00 AM to 4:00 PM.
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHERE IS THE COLLEGE</pattern>
+        <template>
+            The college is located in Mumbai.
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT COURSES ARE AVAILABLE</pattern>
+        <template>
+            The college offers courses in Computer Science, Information Technology, Artificial Intelligence and Data Science, and Management.
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS THE ADMISSION PROCESS</pattern>
+        <template>
+            Admission is based on the eligibility criteria and the admission process prescribed by the college.
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS THE LIBRARY TIMING</pattern>
+        <template>
+            The library is open from 9:00 AM to 5:00 PM on working days.
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHERE IS THE LIBRARY</pattern>
+        <template>
+            The library is located on the first floor of the main building.
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHO IS THE PRINCIPAL</pattern>
+        <template>
+            The principal of the college is Dr. Sharma.
+        </template>
+    </category>
+
+    <category>
+        <pattern>THANK YOU</pattern>
+        <template>
+            You are welcome!
+        </template>
+    </category>
+
+    <category>
+        <pattern>BYE</pattern>
+        <template>
+            Thank you for using the College Information Chatbot. Goodbye!
+        </template>
+    </category>
+
+</aiml>

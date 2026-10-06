@@ -2,6 +2,29 @@
 
 Optimal, concise, and exam-ready implementations of all 10 Artificial Intelligence Lab Practicals.
 
+## Directory Structure
+
+```text
+ai-lab/
+├── Prac_1_DFS.py                           # 10 Universal Template Codes (Root)
+├── Prac2_bfs.py
+├── Prac3_water_jug.py
+├── Prac4_nqueen.py
+├── Prac5_minimax.py
+├── Prac6A_neuralnetwork_without_library.py
+├── Prac6B_neural_network_with_lib.py
+├── Prac7_greedy_bfs.py
+├── Prac8_A_star.py
+├── Prac9_aiml_chatbot.py
+├── college.aiml
+├── original_codes/                         # Original Lab Practical Codes
+│   ├── Prac_1_DFS.py ... Prac9_aiml_chatbot.py
+│   └── college.aiml
+└── keval/                                  # Reference Implementations
+    ├── Prac_1_DFS.py ... Prac9_aiml_chatbot.py
+    └── college.aiml
+```
+
 ## List of Practicals
 
 1. **Practical 1: Depth First Search (DFS)** - `Prac_1_DFS.py`
