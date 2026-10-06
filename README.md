@@ -20,7 +20,7 @@ ai-lab/
 ├── original_codes/                         # Original Lab Practical Codes
 │   ├── Prac_1_DFS.py ... Prac9_aiml_chatbot.py
 │   └── college.aiml
-└── keval/                                  # Reference Implementations
+└── k/                                      # Reference Implementations
     ├── Prac_1_DFS.py ... Prac9_aiml_chatbot.py
     └── college.aiml
 ```
